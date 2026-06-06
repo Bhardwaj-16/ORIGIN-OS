@@ -1,0 +1,45 @@
+[5-6th June 2026]
+
+After normal transparency setup and button are sent to the left Now install the GTK theme for MacOS, I have a zip file in DOwnloads folder. Link: https://www.patreon.com/posts/159024420
+
+
+Now, Inside the project file, I right clicked the install.sh -> Properties -> Permissions, allow executinf file as program is checked.
+
+Then, I CD'ed into the file and then ran ./install.sh
+
+Then some icons werent rendering properly so I went to the projectFile again, 
+
+Then I downloaded the icons from links and credits (https://www.pling.com/p/1405756/). I extracted and then I moved them to .Icons folder inside the home folder(Hidden file).
+
+
+The best theming is (McMojave-cursors, WhiteSur-Dark, WhiteSur-Dark, WhiteSur-Dark)
+
+AN then I moved my taskbar up(the default one)
+
+then openend the plank application(inbuilt)
+then right clicked on plank -> preferences -> and then changed the theme to plank Theme
+
+PlankTheme wasnt visible so I moved the plankTheme from project file to home/.local/share/plank/themes/
+
+
+then I went to conky manager
+settings -> locations -> add -> home -> right click, show hidden files -> .config -> conky selected, then add it, click okay and then refresh
+
+THen in conky I selected a few themes like Calendars etc. although conky is a bit buggy and isnt recommended. Will make an app on my own later for widgets.
+
+I then also installed an applet called automatic dark.light themes by guillaume-mueller. And then I went to the applet's settings and then in setting i turned off, light/dark mode, turned on automatically switch modes under the control section and then synced with the system under location section. Then in light mode and dark mode I uploaded the wallpapers I wanted...
+
+And then in startup applications, I added Plank.
+
+
+I removed Grouped window list(for applications) from the top panel by going to panel edit mode.
+
+
+Now I installed cubic using these commands:
+sudo apt-add-repository universe
+sudo apt-add-repository ppa:cubic-wizard/release
+sudo apt update
+sudo apt install --no-install-recommends cubic
+
+And thats pretty much it. Time to install cubic and ship the first version of the OS with just basic theme changes...
+
