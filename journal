@@ -1,13 +1,13 @@
 [5-6th June 2026]
 
-After normal transparency setup and button are sent to the left Now install the GTK theme for MacOS, I have a zip file in DOwnloads folder. Link: https://www.patreon.com/posts/159024420
+After normal transparency setup and button are sent to the left Now install the GTK theme for MacOS, I have a zip file in Downloads folder. Link: https://www.patreon.com/posts/159024420
 
 
 Now, Inside the project file, I right clicked the install.sh -> Properties -> Permissions, allow executinf file as program is checked.
 
 Then, I CD'ed into the file and then ran ./install.sh
 
-Then some icons werent rendering properly so I went to the projectFile again, 
+Then some icons weren't rendering properly so I went to the projectFile again, 
 
 Then I downloaded the icons from links and credits (https://www.pling.com/p/1405756/). I extracted and then I moved them to .Icons folder inside the home folder(Hidden file).
 
@@ -16,16 +16,16 @@ The best theming is (McMojave-cursors, WhiteSur-Dark, WhiteSur-Dark, WhiteSur-Da
 
 AN then I moved my taskbar up(the default one)
 
-then openend the plank application(inbuilt)
+then opened the plank application(inbuilt)
 then right clicked on plank -> preferences -> and then changed the theme to plank Theme
 
-PlankTheme wasnt visible so I moved the plankTheme from project file to home/.local/share/plank/themes/
+PlankTheme wasn't visible so I moved the plankTheme from project file to home/.local/share/plank/themes/
 
 
 then I went to conky manager
 settings -> locations -> add -> home -> right click, show hidden files -> .config -> conky selected, then add it, click okay and then refresh
 
-THen in conky I selected a few themes like Calendars etc. although conky is a bit buggy and isnt recommended. Will make an app on my own later for widgets.
+Then in conky I selected a few themes like Calendars etc. although conky is a bit buggy and isn't recommended. Will make an app on my own later for widgets.
 
 I then also installed an applet called automatic dark.light themes by guillaume-mueller. And then I went to the applet's settings and then in setting i turned off, light/dark mode, turned on automatically switch modes under the control section and then synced with the system under location section. Then in light mode and dark mode I uploaded the wallpapers I wanted...
 
@@ -42,4 +42,41 @@ sudo apt update
 sudo apt install --no-install-recommends cubic
 
 And thats pretty much it. Time to install cubic and ship the first version of the OS with just basic theme changes...
+
+
+[8th June 2026]
+
+Okay cubic is opened, I set everything up and now I am in the terminal root.
+
+Okay now its time to install plank and conky using
+
+apt update
+apt install plank conky-all -y
+
+And then I made a folder: mkdir -p /root_assets
+And then I unzipped origin files: tar -xzvf origin-os.tar.gz -C /root_assets
+
+Install Themes and Icons System-Wide:
+To ensure the login screen and all applications can see your MacOS themes and cursors, they belong in the /usr/share directories.
+
+cp -r /root_assets/.icons/* /usr/share/icons/
+cp -r /root_assets/.themes/* /usr/share/themes/
+
+
+Set Up the Default User Experience (/etc/skel):
+Now, we move your personal configurations into the skeleton directory so every new installation inherits them.
+
+mkdir -p /etc/skel/.config
+mkdir -p /etc/skel/.local/share
+
+cp -r /root_assets/.config/conky /etc/skel/.config/
+cp -r /root_assets/.local/share/plank /etc/skel/.local/share/
+cp -r /root_assets/.config/autostart /etc/skel/.config/
+cp -r /root_assets/.config/dconf /etc/skel/.config/
+
+
+Cleanup:
+rm -rf /root_assets origin_assets.zip
+apt autoremove -y
+apt clean
 
